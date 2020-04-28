@@ -4,24 +4,24 @@ loaderVersion="[31,)"
 #issueTrackerURL="http://my.issue.tracker/" #optional
 
 [[mods]]
-    modId="chunknogobyebye"
+    modId="beaconchunkloaders"
     version="${file.jarVersion}"
-    displayName="ChunkNoGoByeBye"
+    displayName="Beacon Chunkloaders"
     #updateJSONURL="http://myurl.me/"
     #displayURL="http://example.com/"
     #logoFile="examplemod.png"
-    #credits=""
-    authors="LexManos"
-    description="Adds a Block to keep the current chunk loaded using vanilla loading mechanics."
+    #credits="LexManos"
+    authors="CAS_ual_TY, LexManos"
+    description="Fork of LexManos' ChunkNoGoByeBye but change to Beacons instead."
     
-[[dependencies.chunknogobyebye]]
+[[dependencies.beaconchunkloaders]]
     modId="forge"
     mandatory=true
     versionRange="[31,)"
     ordering="NONE"
     side="BOTH"
     
-[[dependencies.chunknogobyebye]]
+[[dependencies.beaconchunkloaders]]
     modId="minecraft"
     mandatory=true
     versionRange="[1.15.2]"
