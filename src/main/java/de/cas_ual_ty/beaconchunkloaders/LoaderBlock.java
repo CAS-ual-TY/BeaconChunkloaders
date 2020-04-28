@@ -1,11 +1,11 @@
 package de.cas_ual_ty.beaconchunkloaders;
 
-import net.minecraft.block.Block;
+import net.minecraft.block.BeaconBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class LoaderBlock extends Block
+public class LoaderBlock extends BeaconBlock
 {
     public LoaderBlock(Properties properties)
     {
