@@ -15,20 +15,22 @@ public class LoaderBlock extends BeaconBlock
     @Override
     public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean isMoving)
     {
-        if(world.isRemote)
+        if(!world.isRemote)
         {
-            return;
+            world.getCapability(BeaconChunkloaders.CAPABILITY, null).ifPresent(cap -> cap.add(pos));
         }
-        world.getCapability(BeaconChunkloaders.CAPABILITY, null).ifPresent(cap -> cap.add(pos));
+        
+        super.onBlockAdded(state, world, pos, oldState, isMoving);
     }
     
     @Override
     public void onReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean isMoving)
     {
-        if(world.isRemote)
+        if(!world.isRemote)
         {
-            return;
+            world.getCapability(BeaconChunkloaders.CAPABILITY, null).ifPresent(cap -> cap.remove(pos));
         }
-        world.getCapability(BeaconChunkloaders.CAPABILITY, null).ifPresent(cap -> cap.remove(pos));
+        
+        super.onReplaced(state, world, pos, newState, isMoving);
     }
 }
