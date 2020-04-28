@@ -1,9 +1,14 @@
 package de.cas_ual_ty.beaconchunkloaders;
 
+import java.lang.reflect.Field;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.google.common.collect.ImmutableSet;
+
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.BlockItem;
@@ -11,6 +16,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Rarity;
 import net.minecraft.nbt.INBT;
+import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
@@ -25,6 +31,7 @@ import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
@@ -55,8 +62,27 @@ public class BeaconChunkloaders
         MinecraftForge.EVENT_BUS.register(this);
     }
     
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+    private void fixBeaconTE() throws IllegalArgumentException, IllegalAccessException
+    {
+        Class c = TileEntityType.class;
+        Field f = ObfuscationReflectionHelper.findField(c, "validBlocks");
+        f.set(TileEntityType.BEACON, ImmutableSet.of(Blocks.BEACON, BeaconChunkloaders.NEW_BEACON_BLOCK.get()));
+    }
+    
     private void setup(final FMLCommonSetupEvent event)
     {
+        try
+        {
+            this.fixBeaconTE();
+        }
+        catch (IllegalArgumentException | IllegalAccessException e)
+        {
+            LOGGER.error("Beacon Chunkloaders failed to load properly!");
+            LOGGER.error("If you continue it is recommended not to place/remove any Beacons!");
+            e.printStackTrace();
+        }
+        
         CapabilityManager.INSTANCE.register(IChunkLoaderList.class, new ChunkLoaderList.Storage(), () -> new ChunkLoaderList(null));
     }
     
