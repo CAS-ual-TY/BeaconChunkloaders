@@ -78,8 +78,8 @@ public class BeaconChunkloaders
         }
         catch (IllegalArgumentException | IllegalAccessException e)
         {
-            LOGGER.error("Beacon Chunkloaders failed to load properly!");
-            LOGGER.error("If you continue it is recommended not to place/remove any Beacons!");
+            BeaconChunkloaders.LOGGER.error("Beacon Chunkloaders failed to load properly!");
+            BeaconChunkloaders.LOGGER.error("If you continue it is recommended not to place/remove any Beacons!");
             e.printStackTrace();
         }
         
