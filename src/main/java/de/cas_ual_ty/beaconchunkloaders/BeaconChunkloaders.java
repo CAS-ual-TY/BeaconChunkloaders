@@ -48,10 +48,10 @@ public class BeaconChunkloaders
     @CapabilityInject(IChunkLoaderList.class)
     public static Capability<IChunkLoaderList> CAPABILITY = null;
     
-    private static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, "minecraft");
-    private static final DeferredRegister<Block> BLOCKS = new DeferredRegister<>(ForgeRegistries.BLOCKS, "minecraft");
+    private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, "minecraft");
+    private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, "minecraft");
     
-    public static final RegistryObject<Block> NEW_BEACON_BLOCK = BeaconChunkloaders.BLOCKS.register(BeaconChunkloaders.BEACON_ID, () -> new LoaderBlock(Block.Properties.create(Material.GLASS, MaterialColor.DIAMOND).hardnessAndResistance(3.0F).lightValue(15).notSolid()));
+    public static final RegistryObject<Block> NEW_BEACON_BLOCK = BeaconChunkloaders.BLOCKS.register(BeaconChunkloaders.BEACON_ID, () -> new LoaderBlock(Block.Properties.create(Material.GLASS, MaterialColor.DIAMOND).hardnessAndResistance(3.0F).setLightLevel((state) -> 15).notSolid()));
     public static final RegistryObject<Item> NEW_BEACON_ITEM = BeaconChunkloaders.ITEMS.register(BeaconChunkloaders.BEACON_ID, () -> new BlockItem(BeaconChunkloaders.NEW_BEACON_BLOCK.get(), (new Item.Properties()).group(ItemGroup.MISC).rarity(Rarity.RARE)));
     
     public BeaconChunkloaders()

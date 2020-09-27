@@ -19,6 +19,7 @@ public class LoaderBlock extends BeaconBlock
         super(properties);
     }
     
+    @Deprecated
     @Override
     public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean isMoving)
     {
@@ -30,6 +31,7 @@ public class LoaderBlock extends BeaconBlock
         super.onBlockAdded(state, world, pos, oldState, isMoving);
     }
     
+    @Deprecated
     @Override
     public void onReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean isMoving)
     {

@@ -1,29 +1,16 @@
 modLoader="javafml"
-loaderVersion="[31,)"
+loaderVersion="[34,)"
+license="GNU Lesser General Public License v2.1"
 # A URL to refer people to when problems occur with this mod
-#issueTrackerURL="http://my.issue.tracker/" #optional
+issueTrackerURL="https://github.com/CAS-ual-TY/BeaconChunkloaders/issues" #optional
 
 [[mods]]
     modId="beaconchunkloaders"
     version="${file.jarVersion}"
     displayName="Beacon Chunkloaders"
     #updateJSONURL="http://myurl.me/"
-    #displayURL="http://example.com/"
+    displayURL="https://github.com/CAS-ual-TY/BeaconChunkloaders"
     #logoFile="examplemod.png"
-    #credits="LexManos"
+    credits="LexManos, the original Author"
     authors="CAS_ual_TY, LexManos"
-    description="Fork of LexManos' ChunkNoGoByeBye but change to Beacons instead."
-    
-[[dependencies.beaconchunkloaders]]
-    modId="forge"
-    mandatory=true
-    versionRange="[31,)"
-    ordering="NONE"
-    side="BOTH"
-    
-[[dependencies.beaconchunkloaders]]
-    modId="minecraft"
-    mandatory=true
-    versionRange="[1.15.2]"
-    ordering="NONE"
-    side="BOTH"
+    description="Fork of LexManos' ChunkNoGoByeBye but changed to use Beacons instead."
