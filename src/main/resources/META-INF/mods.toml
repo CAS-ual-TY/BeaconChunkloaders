@@ -1,16 +1,14 @@
 modLoader="javafml"
 loaderVersion="[34,)"
 license="GNU Lesser General Public License v2.1"
-# A URL to refer people to when problems occur with this mod
-issueTrackerURL="https://github.com/CAS-ual-TY/BeaconChunkloaders/issues" #optional
+issueTrackerURL="https://github.com/CAS-ual-TY/BeaconChunkloaders/issues"
 
 [[mods]]
     modId="beaconchunkloaders"
     version="${file.jarVersion}"
     displayName="Beacon Chunkloaders"
-    #updateJSONURL="http://myurl.me/"
     displayURL="https://github.com/CAS-ual-TY/BeaconChunkloaders"
-    #logoFile="examplemod.png"
-    credits="LexManos, the original Author"
+    logoFile="logo.png"
+    credits="LexManos, the original Author, Mojang and the Minecraft Forge Team"
     authors="CAS_ual_TY, LexManos"
     description="Fork of LexManos' ChunkNoGoByeBye but changed to use Beacons instead."
