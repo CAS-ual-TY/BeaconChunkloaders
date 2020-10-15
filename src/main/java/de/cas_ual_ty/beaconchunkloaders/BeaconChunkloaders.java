@@ -66,7 +66,7 @@ public class BeaconChunkloaders
     private void fixBeaconTE() throws IllegalArgumentException, IllegalAccessException
     {
         Class c = TileEntityType.class;
-        Field f = ObfuscationReflectionHelper.findField(c, "validBlocks");
+        Field f = ObfuscationReflectionHelper.findField(c, "field_223046_I");
         f.set(TileEntityType.BEACON, ImmutableSet.of(Blocks.BEACON, BeaconChunkloaders.NEW_BEACON_BLOCK.get()));
     }
     
